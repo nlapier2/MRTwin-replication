@@ -1,4 +1,1 @@
 {'MR Estimate': '8.43e-01', 'MR std. error': '1.49e-01', 'MR t-statistic': '5.66e+00', 'MR p-value': '1.47e-04', 'MR Twin p-value': '9.90e-03'}
-{'MR Estimate': '9.13e-01', 'MR std. error': '2.17e-01', 'MR t-statistic': '4.22e+00', 'MR p-value': '2.45e-05', 'MR Twin p-value': '9.90e-03'}
-{'MR Estimate': '8.62e-01', 'MR std. error': '9.35e-02', 'MR t-statistic': '9.23e+00', 'MR p-value': '2.79e-20', 'MR Twin p-value': '9.90e-03'}
-P-value:  7.025552e-06 
