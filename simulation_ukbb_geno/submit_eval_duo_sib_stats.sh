@@ -16,8 +16,9 @@ dir_name=${dir_arr[$index]}
 num_sims=500
 num_twins=100
 
+python eval_sim_mrtrio.py --dir_name ${dir_name} --method ivw --num_sims ${num_sims} --num_twins ${num_twins} --include_duo > ${dir_name}results_mrduo.txt
+python eval_sim_mrtrio.py --dir_name ${dir_name} --method ivw --num_sims ${num_sims} --num_twins ${num_twins} --include_sib > ${dir_name}results_mrsib.txt
 python eval_sim_mrtrio.py --dir_name ${dir_name} --method ivw --num_sims ${num_sims} --num_twins ${num_twins} > ${dir_name}results_ivw_mrtrio.txt
-Rscript brumpton.R ${dir_name} ${num_sims} > ${dir_name}results_brumpton.txt
 python eval_sim_mrtrio.py --dir_name ${dir_name} --method egger --num_sims ${num_sims} --num_twins ${num_twins} > ${dir_name}results_egger_mrtrio.txt
 python eval_sim_mrtrio.py --dir_name ${dir_name} --method median --num_sims ${num_sims} --num_twins ${num_twins} > ${dir_name}results_median_mrtrio.txt
 python eval_sim_mrtrio.py --dir_name ${dir_name} --method mode --num_sims ${num_sims} --num_twins ${num_twins} > ${dir_name}results_mode_mrtrio.txt

@@ -1,4 +1,9 @@
-# Instructions
+# Replication instructions for the UK Biobank Simulations
+
+This directory contains scripts and instructions for replicating the UK Biobank simulation results in the MR-Twin main text.
+
+
+### Instructions for the main FPR figure
 
 1. We are not able to include the PLINK bfile that we used in our simulations because we used genotypes from the UK Biobank project. Please follow the instructions outlined in the paper to reproduce this bfile. This essentially involves isolating all unrelated White British individuals from the UK Biobank. 
 
@@ -8,5 +13,12 @@
 
 4. Run "submit\_eval\_main.sh" and examine the results.
 
-5. Optionally, if you would like, you can run duo and sib modes by using the --include\_duo and/or --include\_sib flags in the calls to eval\_sim\_mrtrio.py in the submission script for step 3. Please be advised that these take much longer to run, especially sib mode.
+
+### Instructions for other figures
+
+For replicating the other figures, you can follow the steps above but swap out the scripts in the last two steps with the ones below.
+
+Replicating duo and sib mode results as well as results using different MR methods with MR-Twin: see "submit\_eval\_duo\_sib\_stats.sh". In practice, duo and sib modes take much longer to run, so it is probably preferable to parallelize jobs and then combine the results into a single file later.
+
+Replicating the MR-Twin power and FPR results under varying sample sizes: see "submit\_sample\_size\_fpr\_scaling.sh" and "submit\_eval\_sample\_size\_fpr.sh".
 
