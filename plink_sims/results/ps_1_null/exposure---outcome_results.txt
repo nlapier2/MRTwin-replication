@@ -1,0 +1,2 @@
+{'MR Estimate': '1.28e-01', 'MR std. error': '8.39e-02', 'MR t-statistic': '1.52e+00', 'MR p-value': '1.71e-01', 'MR Twin p-value': '6.53e-01'}
+
