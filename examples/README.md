@@ -12,11 +12,11 @@ trio.mother: genotype information for trio-mother
 
 external.exposure: exposure trait for external population
 
-exposure: exposure trait for trio 
+exposure: exposure trait for the trios 
 
 external.outcome: outcome trait for external population
 
-outcome: outcome trait fro trio
+outcome: outcome trait for the trios
 
 ### Folder description:
 ps 1 null: no population structure, null model (no causal effect)
