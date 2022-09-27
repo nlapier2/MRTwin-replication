@@ -1,7 +1,7 @@
 ## Replication code for simulation in the supplementary
 
 
-mrtrio_controlPC.R contains the pipeline for genotype and trait simulation, together with statistics computation for MRTwin, Brumpton and IVW. 
+`mrtrio_controlPC.R` contains the pipeline for genotype and trait simulation, together with statistics computation for MRTwin, Brumpton and IVW. 
 You can easily run the script using
 ```
 sh runmrtrio.sh
