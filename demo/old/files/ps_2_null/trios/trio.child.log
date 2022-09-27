@@ -1,0 +1,19 @@
+PLINK v1.90b6.24 64-bit (6 Jun 2021)
+Options in effect:
+  --map external.map
+  --out temp/trio.child
+  --ped trio.child.ped
+
+Hostname: login2
+Working directory: /u/home/s/stevturn/ps_2_null
+Start time: Wed May  4 21:41:41 2022
+
+Random number seed: 1651725701
+48300 MB RAM detected; reserving 24150 MB for main workspace.
+Allocated 3222 MB successfully, after larger attempt(s) failed.
+Scanning .ped file... done.
+Performing single-pass .bed write (50 variants, 1000 people).
+--file: temp/trio.child.bed + temp/trio.child.bim + temp/trio.child.fam
+written.
+
+End time: Wed May  4 21:41:41 2022
