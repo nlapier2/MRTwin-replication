@@ -1,5 +1,5 @@
 # Randomly select causal SNPs from Plink bfile, sample effect sizes,
-#     and write output file for GCTA to simulate phenotypes from
+#     generate phenotypes, and run GWAS. Write output for MR methods to run on.
 import argparse
 import glob
 import subprocess
@@ -14,8 +14,6 @@ from generate_offspring import generate_offspring
 e_causal_fname, o_causal_fname, all_causal_fname = '', '', ''
 ext_iid_fname, parent_iid_fname = '', ''
 ext_plink_fname, trio_plink_fname = '', ''
-gcta_e_ext_fname, gcta_o_ext_fname = '', ''
-gcta_e_trio_fname, gcta_o_trio_fname = '', ''
 pheno_df_fname = ''
 gwas_out_fname = ''
 pa1geno_fname, pa2geno_fname = '', ''
@@ -144,7 +142,7 @@ def get_alleles(genos):  # split genotypes into plink12 alleles
     return alleles
 
 
-def sim_children():  # simulate children for trios, add them to plink PED file, and create bfile for gcta pheno sims
+def sim_children():  # simulate children for trios, add them to plink PED file, then create tfile
     iid_list = []
     pa1genos, pa2genos = [], []
     counter = 0
@@ -237,20 +235,6 @@ def write_child_outcome(child1_iid_dict, child2_iid_dict, e_trio_phenos, o_trio_
     np.savetxt(child2pheno_fname, child2_phenos)
 
 
-def get_ext_iids_and_phenos():
-    iid_list, exposures, outcomes = [], [], []
-    with(open(gcta_e_ext_fname + '.phen', 'r')) as infile:
-        for line in infile:
-            splits = line.strip().split()
-            iid_list.append(int(splits[0]))
-            exposures.append(float(splits[2]))
-    with(open(gcta_o_ext_fname + '.phen', 'r')) as infile:
-        for line in infile:
-            splits = line.strip().split()
-            outcomes.append(float(splits[2]))
-    return iid_list, exposures, outcomes
-
-
 def merge_phenos_into_df(pc_df, iid_list, exposures, outcomes):
     pc_df = pc_df[pc_df['EID'].isin(iid_list)]
     pc_df = pc_df.sort_values(by=['EID'])
@@ -281,7 +265,7 @@ def gwas_pass(tfile, pheno_df, num_pcs_regress):
                 ols_res_e = smf.ols(formula='exposure ~ genos', data=pheno_df).fit()
                 ols_res_o = smf.ols(formula='outcome ~ genos', data=pheno_df).fit()
             pval_e = ols_res_e.pvalues['genos']
-            if pval_e < 0.05:  # 5*10**-8:
+            if pval_e < 0.001565402:  # F>10 filter; other options are 0.05 or 5*10**-8
                 sig_snp_indices.append(counter)
                 beta_e = ols_res_e.params['genos']
                 se_e = ols_res_e.bse['genos']
@@ -334,8 +318,6 @@ if __name__ == '__main__':
     # set output file names
     e_causal_fname, o_causal_fname, all_causal_fname = pre + '.causal.e', pre + '.causal.o', pre + '.causal.all'
     ext_iid_fname, parent_iid_fname = pre + '.ext.iids', pre + '.parent.iids'
-    gcta_e_ext_fname, gcta_o_ext_fname = pre + '.gcta.ext.e', pre + '.gcta.ext.o'
-    gcta_e_trio_fname, gcta_o_trio_fname = pre + '.gcta.trio.e', pre + '.gcta.trio.o'
     ext_plink_fname, trio_plink_fname = pre + '.ext.plink', pre + '.trio.plink'
     pheno_df_fname = pre + '.pheno'
     gwas_out_fname = pre + '.gwas.tsv'
@@ -345,14 +327,16 @@ if __name__ == '__main__':
     betahat_eo_fname = pre + '.betahatEO'
 
     # read in principal components, sample causal snps, sample external & trio individuals, and sim trio children
-    main_pc_df, main_eid_dict = read_pcfile(args.pcfile, args.bfile + '.fam')
-    main_pc_df = create_confounder_var(main_pc_df, args.num_pcs_confound)  # add confounder var affected by PCs to pc_df
     main_snplist, main_e_causal, main_o_causal = sample_causal_snps(args.bfile, args.h2ge, args.h2go, args.num_causal)
     write_causal(main_e_causal, main_o_causal)
     main_ext_iids, main_parent_iids = split_ids(args.bfile, main_eid_dict, args.trio_pct)
     main_ext_iids, main_parent_iids = [int(i) for i in main_ext_iids], [int(i) for i in main_parent_iids]
     main_child1_iid_dict, main_child2_iid_dict, \
         main_pa1genos, main_pa2genos, main_child1_geno, main_child2_geno = sim_children()
+
+    # read in PCs and generate confounder
+    main_pc_df, main_eid_dict = read_pcfile(args.pcfile, args.bfile + '.fam')
+    main_pc_df = create_confounder_var(main_pc_df, args.num_pcs_confound)  # add confounder var affected by PCs to pc_df
 
     # run phenotype simulation and store the results in a DataFrame with the principal components
     main_ext_confounder = np.array(main_pc_df[main_pc_df['EID'].isin(main_ext_iids)]['conf'])
