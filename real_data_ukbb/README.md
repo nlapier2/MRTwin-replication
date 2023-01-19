@@ -8,5 +8,4 @@ Instructions:
 
 4. Then run submit\_mr\_ext.sh MR submit scripts.
 
-5. Optionally, run scripts/make\_tsv.py to generate the TSV with all results for all methods.
 
