@@ -1,0 +1,106 @@
+WARNING: ignoring environment value of R_HOME
+ [1] "1"     "3"     "50"    "25"    "1000"  "0.2"   "0.8"   "1.0"   "0.0"  
+[10] "0.0"   "0.0"   "50000" "1"     "1"     "0.01"  "0.01"  "GWAS" 
+# seed: 1 
+# h2: 0.2 
+# m: 50 
+# mcausal: 25 
+# num_trios: 1000 
+# num_twins: 100 
+# num_ext: 50000 
+# ext_model: 1 
+# gwas_model: 0 
+# trio_model: 1 
+# trio_ext: 1 
+# causal_effect: 0 
+# effect_of_population_on_exposure: 0 
+# effect_of_population_on_outcome: 0 
+# exposure noise: 0.8 
+# outcome noise: 1 
+# snpfilter: GWAS 
+# fst: 0.01 
+# Realized fst: 0.01025121 
+[1] "MAE beta_e est: 0.00366119805505989"
+[1] "MAE beta_o est: 0.00193488349915314"
+[1] "est beta_e beta_o corr: 0.124413586415619"
+[1] "selected MAE beta_e est: 0.00855565091137685"
+[1] "selected MAE beta_o est: 0.00252361287945215"
+[1] "selected est beta_e beta_o corr: 0.200793734544621"
+# fst: 0.01 
+# Realized fst: 0.01025121 
+[1] "WI1 detected21"
+[1] "WI2 detected7"
+[1] "Brumpton m is 7"
+Replicate:  1 mrtrio pval =  0.6138614 
+Replicate:  1 brumpton pval  =  0.6405654 
+Replicate:  1 ivw pval  =  0.9152286 
+Replicate:  1 egger pval  =  0.6382025 
+Replicate:  1 median pval  =  0.9547102 
+Replicate:  1 mode pval  =  0.9194903 
+Replicate:  1 Brumpton-orig pval  =  0.8856397 
+Replicate:  1 ivw-filter pval  =  0.4123852 
+Replicate:  1 egger-filter pval  =  0.7667587 
+Replicate:  1 median-filter pval  =  0.9991573 
+Replicate:  1 mode-filter pval  =  0.6767136 
+# fst: 0.01 
+# Realized fst: 0.008745391 
+[1] "MAE beta_e est: -0.00866241350097066"
+[1] "MAE beta_o est: -0.000281745177934298"
+[1] "est beta_e beta_o corr: 0.270899169453958"
+[1] "selected MAE beta_e est: -0.0223340979329583"
+[1] "selected MAE beta_o est: 0.000109398474423997"
+[1] "selected est beta_e beta_o corr: 0.458281535591313"
+# fst: 0.01 
+# Realized fst: 0.008745391 
+[1] "WI1 detected19"
+[1] "WI2 detected7"
+[1] "Brumpton m is 7"
+Replicate:  2 mrtrio pval =  0.9207921 
+Replicate:  2 brumpton pval  =  0.1246567 
+Replicate:  2 ivw pval  =  0.9513249 
+Replicate:  2 egger pval  =  0.8147867 
+Replicate:  2 median pval  =  0.9772997 
+Replicate:  2 mode pval  =  0.9860031 
+Replicate:  2 Brumpton-orig pval  =  0.1124766 
+Replicate:  2 ivw-filter pval  =  0.07115145 
+Replicate:  2 egger-filter pval  =  0.5263648 
+Replicate:  2 median-filter pval  =  0.02122539 
+Replicate:  2 mode-filter pval  =  0.09064444 
+# fst: 0.01 
+# Realized fst: 0.008484275 
+[1] "MAE beta_e est: 0.00377021258054382"
+[1] "MAE beta_o est: -4.11365794583566e-05"
+[1] "est beta_e beta_o corr: -0.0204078423988956"
+[1] "selected MAE beta_e est: 0.00707414910039247"
+[1] "selected MAE beta_o est: 0.000243913557351677"
+[1] "selected est beta_e beta_o corr: -0.0456292593690004"
+# fst: 0.01 
+# Realized fst: 0.008484275 
+[1] "WI1 detected24"
+[1] "WI2 detected8"
+[1] "Brumpton m is 8"
+Replicate:  3 mrtrio pval =  0.6336634 
+Replicate:  3 brumpton pval  =  0.2768424 
+Replicate:  3 ivw pval  =  0.2436236 
+Replicate:  3 egger pval  =  0.2581064 
+Replicate:  3 median pval  =  0.2206131 
+Replicate:  3 mode pval  =  0.09166206 
+Replicate:  3 Brumpton-orig pval  =  0.59779 
+Replicate:  3 ivw-filter pval  =  0.7437027 
+Replicate:  3 egger-filter pval  =  0.07883479 
+Replicate:  3 median-filter pval  =  0.7476325 
+Replicate:  3 mode-filter pval  =  0.5477906 
+## mrtrio Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## Brumpton Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## IVW Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## Egger Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## Median Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## Mode Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 
+## Brumpton-orig Ext_model trio_model n0 n FPR@0.05 p-value_of_calibration
+## 1 1 0 3 0 0.6911022 

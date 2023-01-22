@@ -35,6 +35,8 @@ code=${codefile}
 # mapfile -t < /u/scratch/b/boyang19/tmp/u/flashscratch/b/boyang19/MR/sriram_sim/results_weakIV_fine_grid/polygenic_brumpton_sim_fine_grid.txt
 var=$(awk "NR==${RowIndex}" ${paramPath})
 IFS=' ' read nsim m mcausal n h2 se so gamma_ue gamma_uo ce ext_n ext_model trio_model efst fst <<< $var
+nsim=1 ### Only run three iterations for demonstration purpose
+
 echo "${code} ${Seed} $nsim $m $mcausal $n $h2 $se $so $gamma_ue $gamma_uo $ce $ext_n $ext_model $trio_model $efst $fst $snpfilter $realD $tflag" 
 Rscript ${code} ${Seed} $nsim $m $mcausal $n $h2 $se $so $gamma_ue $gamma_uo $ce $ext_n $ext_model $trio_model $efst $fst  $snpfilter $realD $tflag $oFile
 
@@ -49,15 +51,15 @@ for (( rep=1; rep<=$nsim; rep++ )); do
   # python ${scripts}/run_mrtwin_real_data.py --include_duo --include_sib --num_twins 100 --basename ${dataPath}/${datafile} >> ${oPath}${RowIndex}_${Seed}_$((realD)).MR.log
   python run_mrtwin_real_data.py --num_twins $permute --basename ${dataPath}/${datafile} | tee -a ${oPath}${RowIndex}_${Seed}_$((realD)).MR.log
 
-  echo "removed the tmp files from ${dataPath}/${datafile}"
+  # echo "removed the tmp files from ${dataPath}/${datafile}"
 
-  rm ${dataPath}/${datafile}.betahatEO
-  rm ${dataPath}/${datafile}.pa1geno
-  rm ${dataPath}/${datafile}.pa2geno
-  rm ${dataPath}/${datafile}.childgeno
-  rm ${dataPath}/${datafile}.childpheno
-  rm ${dataPath}/${datafile}.child2geno
-  rm ${dataPath}/${datafile}.child2pheno
+  # rm ${dataPath}/${datafile}.betahatEO
+  # rm ${dataPath}/${datafile}.pa1geno
+  # rm ${dataPath}/${datafile}.pa2geno
+  # rm ${dataPath}/${datafile}.childgeno
+  # rm ${dataPath}/${datafile}.childpheno
+  # rm ${dataPath}/${datafile}.child2geno
+  # rm ${dataPath}/${datafile}.child2pheno
 
   echo "finish removal"
 done

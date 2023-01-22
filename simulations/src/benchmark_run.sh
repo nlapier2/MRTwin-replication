@@ -31,6 +31,9 @@ code=${codefile}
 # mapfile -t < /u/scratch/b/boyang19/tmp/u/flashscratch/b/boyang19/MR/sriram_sim/results_weakIV_fine_grid/polygenic_brumpton_sim_fine_grid.txt
 var=$(awk "NR==${RowIndex}" ${paramPath})
 IFS=' ' read nsim m mcausal n h2 se so gamma_ue gamma_uo ce ext_n ext_model trio_model efst fst <<< $var
+nsim=3 ### Only run three iterations for demonstration purpose
+
+
 # echo "${MAPFILE[$((SGE_TASK_ID-1))]}"
 echo "${code} ${Seed} $nsim $m $mcausal $n $h2 $se $so $gamma_ue $gamma_uo $ce $ext_n $ext_model $trio_model $efst $fst $snpfilter"
 # Rscript ${code} ${Seed} $nsim $m $mcausal $n $h2 $se $so $gamma_ue $gamma_uo $ce $ext_n $ext_model $trio_model $efst $fst  $snpfilter
