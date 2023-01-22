@@ -45,11 +45,10 @@ dataPath="$oFile/"
 for (( rep=1; rep<=$nsim; rep++ )); do
   datafile="${realD}.${Seed}.${rep}"
   # scripts=/u/scratch/b/boyang19/tmp/u/flashscratch/b/boyang19/MR/MR-Twin/demo/scripts/
-  scripts=../MR-Twin/
   echo "*** rep ${rep} ***" 
 
   # python ${scripts}/run_mrtwin_real_data.py --include_duo --include_sib --num_twins 100 --basename ${dataPath}/${datafile} >> ${oPath}${RowIndex}_${Seed}_$((realD)).MR.log
-  python ${scripts}/run_mrtwin_real_data.py --num_twins $permute --basename ${dataPath}/${datafile} | tee -a ${oPath}${RowIndex}_${Seed}_$((realD)).MR.log
+  python run_mrtwin_real_data.py --num_twins $permute --basename ${dataPath}/${datafile} | tee -a ${oPath}${RowIndex}_${Seed}_$((realD)).MR.log
 
   echo "removed the tmp files from ${dataPath}/${datafile}"
 

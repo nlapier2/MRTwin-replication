@@ -1,0 +1,7 @@
+nsim: 3, m: 50, mcausal: 25, n: 1000, h2: 0.2, se: 0.8, so: 1.0,  ue: 0.0, uo: 0.0, ce: 0.0, ext_n: 50000, ext_model: 1, trio_model: 1, efst: 0.01, fst: 0.01, snpfilter:  GWAS
+## MR-Twin:
+## p-value: 5.05e-01
+## MR-Twin:
+## p-value: 3.96e-01
+## MR-Twin:
+## p-value: 1.78e-01
