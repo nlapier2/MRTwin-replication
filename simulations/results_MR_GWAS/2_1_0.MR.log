@@ -1,7 +1,7 @@
 nsim: 3, m: 50, mcausal: 25, n: 1000, h2: 0.2, se: 0.8, so: 1.0,  ue: 0.0, uo: 0.0, ce: 0.0, ext_n: 50000, ext_model: 1, trio_model: 1, efst: 0.01, fst: 0.01, snpfilter:  GWAS
 ## MR-Twin:
-## p-value: 5.05e-01
+{'MR Estimate': '1.01e-02', 'MR std. error': '1.06e-02', 'MR t-statistic': '9.54e-01', 'MR p-value': '3.52e-01', 'MR Twin p-value': '4.95e-01'}
 ## MR-Twin:
-## p-value: 3.96e-01
+{'MR Estimate': '-3.39e-03', 'MR std. error': '1.12e-02', 'MR t-statistic': '-3.03e-01', 'MR p-value': '7.64e-01', 'MR Twin p-value': '3.86e-01'}
 ## MR-Twin:
-## p-value: 1.78e-01
+{'MR Estimate': '-1.29e-03', 'MR std. error': '8.29e-03', 'MR t-statistic': '-1.56e-01', 'MR p-value': '8.77e-01', 'MR Twin p-value': '1.78e-01'}
